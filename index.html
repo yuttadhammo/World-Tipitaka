@@ -1,0 +1,1076 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE>World Tipitaka</TITLE>
+	<link rel="shortcut icon" href="images/logo.ico">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	
+<script>
+
+function prevP() {
+	var hrf = document.getElementById('prevL').name;
+	outD(hrf);
+}
+
+function nextP() {
+	var hrf = document.getElementById('nextL').name;
+	outD(hrf);
+}
+
+function upP() {
+	var hrf = document.getElementById('upL').name;
+	outD(hrf);
+}
+
+function outD(hrf,pn) {
+
+	hrf += '';
+
+	var hxml = "tipitaka/"+ (hrf.search(/[A-Z]/) > -1 ? '' : 'data/') + hrf + '.xml';
+
+	var xmlhttp = new window.XMLHttpRequest();
+    xmlhttp.open("GET", hxml, false);
+    xmlhttp.send(null);
+    var xmlDoc = xmlhttp.responseXML.documentElement;
+	
+	var data = '';
+	
+	var da = xmlDoc.getElementsByTagName("data");
+
+//	document.getElementById('output').innerHTML = da.length;
+
+	for (tmp = 0; tmp < da.length; tmp++) {
+		data += da[tmp].childNodes[0].nodeValue;
+	}
+	if (pn){
+		var which = pn.value;
+		if (which == 1) {
+			pn.innerHTML = '<a href="javascript:void(0)" onclick="outD(\''+hrf+'\',this.parentNode)">'+pn.getElementsByTagName("a")[0].innerHTML+'</a>';
+			pn.value = 0;
+		}
+		else {
+			pn.value = 1;
+			pn.innerHTML = '<a href="javascript:void(0)" onclick="outD(\''+hrf+'\',this.parentNode)">'+pn.getElementsByTagName("a")[0].innerHTML+'</a>';
+			pn.innerHTML += data;
+		}
+	}
+	else {
+		document.getElementById('output').innerHTML = data;
+	}
+}
+
+
+document.onkeypress = keyPressed;
+
+var isCtrl = false;
+var isAlt = false;
+
+document.onkeyup=function(e){
+	if(e.which == 17) isCtrl=false;
+	if(e.which == 18) isAlt=false;
+}
+document.onkeydown=function(e){
+	if(e.which == 17) isCtrl=true;
+	if(e.which == 18) isAlt=true;
+}
+
+function keyPressed(e) {
+	//if(document.activeElement.type) { return; }
+
+		if (e.charCode == 44) { prevP(); return; } // ,
+		if (e.charCode == 46) { nextP(); return; } // .
+		if (e.charCode == 47) { upP(); return; } // .
+
+		//alert(e.charCode);
+}
+
+
+</script>
+</HEAD>
+<BODY LANG="en-GB" DIR="LTR">
+<div class="o">
+	<div class="left">
+		<div>
+			<TABLE width=100%>
+				<TR>
+					<TD valign=top BGCOLOR="#999999" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>Abbr.</P>
+					</TD>
+					<TD valign=top BGCOLOR="#999999" STYLE="border: none; padding: 0in">
+						<P ALIGN=LEFT>Volume Title</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top COLSPAN=2 BGCOLOR="#ff6633" STYLE="border: none; padding: 0in">
+						<P ALIGN=div><FONT COLOR="#ffffff"><B>Vinayapiṭaka (V)</B></FONT></P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top HEIGHT=21 BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>1<B>V</B> 
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('1V',this.parentNode)">Pārājikapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top HEIGHT=21 BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>2<B>V </B>
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('2V',this.parentNode)">Pācittiyapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top HEIGHT=21 BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>3<B>V</B> 
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('3V',this.parentNode)">Mahāvaggapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top HEIGHT=21 BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>4<B>V</B> 
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('4V',this.parentNode)">Cūḷavaggapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top HEIGHT=21 BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>5<B>V </B>
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('5V',this.parentNode)">Parivārapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top ROWSPAN=43 COLSPAN=2 STYLE="border: none; padding: 0in">
+						<P>&nbsp;</P>
+					</TD>
+				</TR>
+			</TABLE>
+		</div>
+		<div>
+			<TABLE width=100% CELLPADDING=2 CELLSPACING=0 STYLE="page-break-before: always">
+				<COL>
+				<COL>
+				<TR>
+					<TD valign=top BGCOLOR="#999999" STYLE="border: none; padding: 0in">
+						<P><BR>
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#999999" STYLE="border: none; padding: 0in">
+						<P ALIGN=LEFT>Volume Title</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top COLSPAN=2 BGCOLOR="#008000" STYLE="border: none; padding: 0in">
+						<P ALIGN=div><FONT COLOR="#ffffff"><B>Suttantapiṭaka (Sutta)</B></FONT></P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top COLSPAN=2 HEIGHT=21 BGCOLOR="#cccccc" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>Dīghanikāya (D)</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top HEIGHT=21 BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><BR>
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('6D',this.parentNode)">Sīlakkhandhavaggapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top HEIGHT=21 BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><BR>
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('7D',this.parentNode)">Mahāvaggapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top HEIGHT=21 BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><BR>
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('8D',this.parentNode)">Pāthikavaggapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top COLSPAN=2 HEIGHT=21 BGCOLOR="#cccccc" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>Majjhimanikāya (M)</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><BR>
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('9M',this.parentNode)">Mūlapaṇṇāsapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><BR>
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('10M',this.parentNode)">Majjhimapaṇṇāsapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><BR>
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('11M',this.parentNode)">Uparipaṇṇāsapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top COLSPAN=2 BGCOLOR="#cccccc" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>Saṃyuttanikāya (S)</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><BR>
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('12S1',this.parentNode)">Sagāthāvaggasaṃyuttapāḷi</A>
+										</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><BR>
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('12S2',this.parentNode)">Nidānavaggasaṃyuttapāḷi</A>
+										</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><BR>
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('13S3',this.parentNode)">Khandhavaggasaṃyuttapāḷi</A>
+										</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><BR>
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('13S4',this.parentNode)">Saḷāyatanavaggasaṃyuttapāḷi</A>
+										</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><BR>
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('14S5',this.parentNode)">Mahāvaggasaṃyuttapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top COLSPAN=2 BGCOLOR="#cccccc" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>Aṅguttaranikāya (A)</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><BR>
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('15A1',this.parentNode)">Ekakanipātapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><BR>
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('15A2',this.parentNode)">Dukanipātapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><BR>
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('15A3',this.parentNode)">Tikanipātapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><BR>
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('15A4',this.parentNode)">Catukkanipātapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><BR>
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('16A5',this.parentNode)">Pañcakanipātapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><BR>
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('16A6',this.parentNode)">Chakkanipātapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><BR>
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('16A7',this.parentNode)">Sattakanipātapā</A><A target="iF" HREF="/%3Fq=node/35344">ḷi</A>
+										</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><BR>
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('17A8',this.parentNode)">Aṭṭhakanipātapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><BR>
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('17A9',this.parentNode)">Navakanipātapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><BR>
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('17A10',this.parentNode)">Dasakanipātapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><BR>
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('17A11',this.parentNode)">Ekādasakanipātapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top COLSPAN=2 BGCOLOR="#cccccc" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>Khuddakanikāya (Khu)</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><BR>
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('18Kh',this.parentNode)">Khuddakapāṭhapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><BR>
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('18Dh',this.parentNode)">Dhammapadapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><BR>
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('18Ud',this.parentNode)">Udānapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><BR>
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('18It',this.parentNode)">Itivuttakapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><BR>
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('18Sn',this.parentNode)">Suttanipātapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><BR>
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('19Vv',this.parentNode)">Vimānavatthupāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><BR>
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('19Pv',this.parentNode)">Petavatthupāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><BR>
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('19Th1',this.parentNode)">Theragāthāpāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><BR>
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('19Th2',this.parentNode)">Therīgāthāpāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><BR>
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('20Ap1',this.parentNode)">Therāpadānapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><BR>
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('20Ap2',this.parentNode)">Therīapadānapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><BR>
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('21Bu',this.parentNode)">Buddhavaṃsapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><BR>
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('21Cp',this.parentNode)">Cariyāpiṭakapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><BR>
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('22J',this.parentNode)">Jātakapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><BR>
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('23J',this.parentNode)">Jātakapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><BR>
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('24Mn',this.parentNode)">Mahāniddesapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><BR>
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('25Cn',this.parentNode)">Cūḷaniddesapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><BR>
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('26Ps',this.parentNode)">Paṭisambhidāmaggapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><BR>
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('27Ne',this.parentNode)">Nettipāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><BR>
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('27Pe',this.parentNode)">Peṭakopadesapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><BR>
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('28Mi',this.parentNode)">Milindapañhapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top ROWSPAN=43 COLSPAN=2 STYLE="border: none; padding: 0in">
+						<P>&nbsp;</P>
+					</TD>
+				</TR>
+			</TABLE>
+		</div>
+		<div>
+			<TABLE width=100% CELLPADDING=2 CELLSPACING=0 STYLE="page-break-before: always">
+				<COL>
+				<COL>
+				<TR>
+					<TD valign=top BGCOLOR="#999999" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>Abbr.</P>
+					</TD>
+					<TD valign=top BGCOLOR="#999999" STYLE="border: none; padding: 0in">
+						<P ALIGN=LEFT>Volume Title</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top COLSPAN=2 BGCOLOR="#0000ff" STYLE="border: none; padding: 0in">
+						<P ALIGN=div><FONT COLOR="#ffffff"><B>Abhidhammapiṭaka
+						(Abhi)</B></FONT></P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top HEIGHT=21 BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>29<B>Dhs </B>
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('29Dhs',this.parentNode)">Dhammasaṅgaṇīpāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top HEIGHT=21 BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>30<B>Vbh</B> 
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('30Vbh',this.parentNode)">Vibhaṅgapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top HEIGHT=21 BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>31<B>Dht </B>
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('31Dht',this.parentNode)">Dhātukathāpāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top HEIGHT=21 BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>31<B>Pu</B></P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('31Pu',this.parentNode)">Puggalapaññattipāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top HEIGHT=21 BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>32<B>Kv </B>
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('32Kv',this.parentNode)">Kathāvatthupāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top COLSPAN=2 BGCOLOR="#cccccc" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>Yamaka (Y)</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>33<B>Y</B>1 
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('33Y1',this.parentNode)">Mūlayamakapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>33<B>Y</B>2</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('33Y2',this.parentNode)">Khandhayamakapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>33<B>Y</B>3</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('33Y3',this.parentNode)">Āyatanayamakapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>33<B>Y</B>4</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('33Y4',this.parentNode)">Dhātuyamakapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>33<B>Y</B>5</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('33Y5',this.parentNode)">Saccayamakapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>34<B>Y</B>6 
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('34Y6',this.parentNode)">Saṅkhārayamakapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>34<B>Y</B>7</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('34Y7',this.parentNode)">Anusayayamakapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>34<B>Y</B>8</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('34Y8',this.parentNode)">Cittayamakapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>35<B>Y</B>9 
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('35Y9',this.parentNode)">Dhammayamakapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>35<B>Y</B>10</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('35Y10',this.parentNode)">Indriyayamakapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top COLSPAN=2 BGCOLOR="#cccccc" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>Paṭṭhāna (P)</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top COLSPAN=2 BGCOLOR="#d9d6d7" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>Dhammānuloma</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>36<B>P</B>1 
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('36P1',this.parentNode)">Tikapaṭṭhānapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>37<B>P</B>1 
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('37P1',this.parentNode)">Tikapaṭṭhānapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>38<B>P</B>2 
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('38P2',this.parentNode)">Dukapaṭṭhānapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>39<B>P</B>3 
+						</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('39P3',this.parentNode)">Dukatikapaṭṭhānapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>39<B>P</B>4</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('39P4',this.parentNode)">Tikadukapaṭṭhānapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>39<B>P</B>5</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('39P5',this.parentNode)">Tikatikapaṭṭhānapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>39<B>P</B>6</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('39P6',this.parentNode)">Dukadukapaṭṭhānapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top COLSPAN=2 BGCOLOR="#d9d6d7" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>Dhammapaccanīya</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>40<B>P</B>7</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('40P7',this.parentNode)">Tikapaṭṭhānapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>40<B>P</B>8</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('40P8',this.parentNode)">Dukapaṭṭhānapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>40<B>P</B>9</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('40P9',this.parentNode)">Dukatikapaṭṭhānapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>40<B>P</B>10</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('40P10',this.parentNode)">Tikadukapaṭṭhānapāḷi</A>
+										</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>40<B>P</B>11</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('40P11',this.parentNode)">Tikatikapaṭṭhānapāḷi</A>
+										</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>40<B>P</B>12</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('40P12',this.parentNode)">Dukadukapaṭṭhānapāḷi</A>
+										</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top COLSPAN=2 BGCOLOR="#d9d6d7" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>Dhammānulomapaccanīya</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>40<B>P</B>13</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('40P13',this.parentNode)">Tikapaṭṭhānapāḷi</A></P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>40<B>P</B>14</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('40P14',this.parentNode)">Dukapaṭṭhānapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>40<B>P</B>15</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('40P15',this.parentNode)">Dukatikapaṭṭhānapāḷi</A>
+										</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>40<B>P</B>16</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('40P16',this.parentNode)">Tikadukapaṭṭhānapāḷi</A>
+										</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>40<B>P</B>17</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('40P17',this.parentNode)">Tikatikapaṭṭhānapāḷi</A>
+										</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>40<B>P</B>18</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('40P18',this.parentNode)">Dukadukapaṭṭhānapāḷi</A>
+										</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top COLSPAN=2 BGCOLOR="#d9d6d7" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>Dhammapaccanīyānuloma</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>40<B>P</B>19</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('40P19',this.parentNode)">Tikapaṭṭhānapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>40<B>P</B>20</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('40P20',this.parentNode)">Dukapaṭṭhānapāḷi</A> 
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>40<B>P</B>21</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('40P21',this.parentNode)">Dukatikapaṭṭhānapāḷi</A>
+										</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>40<B>P</B>22</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('40P22',this.parentNode)">Tikadukapaṭṭhānapāḷi</A>
+										</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>40<B>P</B>23</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('40P23',this.parentNode)">Tikatikapaṭṭhānapāḷi</A>
+										</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P ALIGN=div>40<B>P</B>24</P>
+					</TD>
+					<TD valign=top BGCOLOR="#e6e6e6" STYLE="border: none; padding: 0in">
+						<P><A href="javascript:void(0)" onclick="outD('40P24',this.parentNode)">Dukadukapaṭṭhānapāḷi</A></P>
+					</TD>
+				</TR>
+				<TR>
+					<TD valign=top ROWSPAN=2 COLSPAN=2 STYLE="border: none; padding: 0in">
+						<P>&nbsp;</P>
+					</TD>
+				</TR>
+				<TR>
+				</TR>
+			</TABLE>
+		</div>
+	</div>
+	<div class="right" id="output"></div>
+</div>
+</BODY>
+</HTML>

@@ -1,0 +1,18 @@
+{
+  "name": "World Tipitaka",
+  "version": "0.1",
+  "description": "World Tipitaka.",
+  "icons": { 
+  "48": "images/logo48.png",
+  "128": "images/logo128.png" },
+  "background_page": "background.html",
+  "update_url": "https://capslock.accountservergroup.com/~sirimang/pali/WTchrome.xml",
+  "browser_action": {
+    "default_title": "World Tipitaka",
+    "default_icon": "images/logo24.png"
+  },
+  "permissions": [
+    "tabs"
+  ]
+}
+
