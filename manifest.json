@@ -1,7 +1,7 @@
 {
   "name": "World Tipitaka",
-  "version": "0.1",
-  "description": "World Tipitaka.",
+  "version": "0.1.1",
+  "description": "Offline version of the World Tipitaka.",
   "icons": { 
   "48": "images/logo48.png",
   "128": "images/logo128.png" },

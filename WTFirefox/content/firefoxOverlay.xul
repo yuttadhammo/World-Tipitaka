@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="chrome://worldtipitaka/skin/overlay.css" type="text/css"?>
+<!DOCTYPE overlay SYSTEM "chrome://worldtipitaka/locale/worldtipitaka.dtd">
+<overlay id="worldtipitaka-overlay"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+    <script src="overlay.js"/>
+    <keyset>
+		<key id="wt-key" modifiers="alt" key="x" oncommand="loadWT();"/>
+	</keyset>
+    <stringbundleset id="stringbundleset">
+        <stringbundle id="worldtipitaka-strings" src="chrome://worldtipitaka/locale/worldtipitaka.properties"/>
+    </stringbundleset>
+
+    <menupopup id="menu_ToolsPopup">
+        <menuitem id="worldtipitaka-load" label="WT" 
+              oncommand="loadWT();"/>
+    </menupopup>
+    <toolbarpalette  id="BrowserToolbarPalette">
+        <toolbarbutton id="wt-button"     label="WT"       oncommand="loadWT()" onclick="if (event.button == 1) loadWT()"
+                   class="toolbarbutton-1" tooltiptext="World Tipitaka"/>
+    </toolbarpalette>
+    <statusbar id="status-bar">
+        <statusbarpanel id="WTStatusBar" role="button"
+                        onmouseup="loadWT();"
+                        tooltiptext="World Tipitaka">
+            <image id="wt-button" />
+        </statusbarpanel>
+    </statusbar>
+</overlay>

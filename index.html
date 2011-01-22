@@ -41,7 +41,9 @@ function outD(hrf,pn) {
 //	document.getElementById('output').innerHTML = da.length;
 
 	for (tmp = 0; tmp < da.length; tmp++) {
-		data += da[tmp].childNodes[0].nodeValue;
+		xmlNode = da[tmp];
+		if(typeof(xmlNode.textContent) != "undefined") data += xmlNode.textContent;  
+		else data += xmlNode.firstChild.nodeValue; 
 	}
 	if (pn){
 		var which = pn.value;

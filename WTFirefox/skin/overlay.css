@@ -1,0 +1,6 @@
+#wt-button {
+  list-style-image    : url("chrome://worldtipitaka/skin/icons/logo24.png");
+}
+toolbar[iconsize="small"] #wt-button {
+  list-style-image    : url("chrome://worldtipitaka/skin/icons/logo.png");
+}

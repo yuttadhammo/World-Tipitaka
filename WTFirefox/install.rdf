@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+ xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+  <Description about="urn:mozilla:install-manifest">
+    <em:id>worldtipitaka@noah.yuttadhammo</em:id>
+    <em:name>World Tipitaka</em:name>
+    <em:version>0.1.1</em:version>
+    <em:creator>Noah Yuttadhammo</em:creator>
+    <em:description>Off-line edition of the World Tipitaka.</em:description>
+    <em:homepageURL>http://pali.sirimangalo.org/</em:homepageURL>
+    <em:optionsURL>chrome://worldtipitaka/content/options.xul</em:optionsURL>
+    <em:updateURL>https://capslock.accountservergroup.com/~sirimang/pali/worldtipitaka.rdf</em:updateURL>
+    <em:targetApplication>
+      <Description>
+        <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id> <!-- firefox -->
+        <em:minVersion>1.5</em:minVersion>
+        <em:maxVersion>4.*</em:maxVersion>
+      </Description>
+    </em:targetApplication>
+  </Description>
+</RDF>
+

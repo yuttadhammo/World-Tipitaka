@@ -1,0 +1,5 @@
+content	worldtipitaka	content/
+locale	worldtipitaka	en-US	locale/en-US/
+skin	worldtipitaka	classic/1.0	skin/
+overlay	chrome://browser/content/browser.xul	chrome://worldtipitaka/content/firefoxOverlay.xul
+style chrome://global/content/customizeToolbar.xul	chrome://worldtipitaka/skin/overlay.css
