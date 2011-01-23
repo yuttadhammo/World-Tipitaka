@@ -52,9 +52,9 @@ function outD(hrf,pn) {
 			pn.value = 0;
 		}
 		else {
-			pn.value = 1;
 			pn.innerHTML = '<a href="javascript:void(0)" onclick="outD(\''+hrf+'\',this.parentNode)">'+pn.getElementsByTagName("a")[0].innerHTML+'</a>';
 			pn.innerHTML += data;
+			pn.value = 1;
 		}
 	}
 	else {

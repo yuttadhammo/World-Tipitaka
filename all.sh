@@ -85,7 +85,7 @@ echo '<?xml version="1.0" encoding="UTF-8"?>
                 <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
                 <em:minVersion>1.5</em:minVersion>
                 <em:maxVersion>4.*</em:maxVersion>
-                <em:updateLink>https://capslock.accountservergroup.com/~sirimang/pali/worldtipitaka.xpi</em:updateLink>
+                <em:updateLink>https://capslock.accountservergroup.com/~sirimang/pali/WTFirefox.xpi</em:updateLink>
                 <em:updateInfoURL>https://capslock.accountservergroup.com/~sirimang/pali/worldtipitaka.xhtml</em:updateInfoURL>
               </RDF:Description>
             </em:targetApplication>
